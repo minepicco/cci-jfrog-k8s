@@ -61,8 +61,8 @@ jobs:
       - run:
           name: simple test
           command: |
-            docker run --rm --name web -d $imagename"/"$CIRCLE_PROJECT_REPONAME":"$CIRCLE_BUILD_NUM
-            curl http://localhost
+            docker run --rm --name web -p 8080:80 -d $imagename"/"$CIRCLE_PROJECT_REPONAME":"$CIRCLE_BUILD_NUM
+            curl http://localhost:8080
             docker stop web
             
       - run:
